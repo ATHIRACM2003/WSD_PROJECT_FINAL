@@ -201,7 +201,7 @@
             </div>
   
             <!-- Give review button (hidden initially) -->
-            <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review <i class="fas fa-arrow-right"></i></button>
+            <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review</a> <i class="fas fa-arrow-right"></i></button>
           </div>
         </div>
       </div>
@@ -231,7 +231,7 @@
               </div>
     
               <!-- Give review button (hidden initially) -->
-              <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review<i class="fas fa-arrow-right"></i></button>
+              <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review</a><i class="fas fa-arrow-right"></i></button>
             </div>
           </div>
         </div>
@@ -262,7 +262,7 @@
               </div>
     
               <!-- Give review button (hidden initially) -->
-              <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review <i class="fas fa-arrow-right"></i></button>
+              <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review</a><i class="fas fa-arrow-right"></i></button>
             </div>
           </div>
         </div>
@@ -289,7 +289,7 @@
               </div>
     
               <!-- Give review button (hidden initially) -->
-              <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review <i class="fas fa-arrow-right"></i></button>
+              <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review</a><i class="fas fa-arrow-right"></i></button>
             </div>
           </div>
         </div>
@@ -319,7 +319,7 @@
               </div>
     
               <!-- Give review button (hidden initially) -->
-              <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review <i class="fas fa-arrow-right"></i></button>
+              <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review</a> <i class="fas fa-arrow-right"></i></button>
             </div>
           </div>
         </div>
@@ -346,7 +346,7 @@
               </div>
     
               <!-- Give review button (hidden initially) -->
-              <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review <i class="fas fa-arrow-right"></i></button>
+              <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review</a><i class="fas fa-arrow-right"></i></button>
             </div>
           </div>
         </div>
@@ -373,7 +373,7 @@
               </div>
     
               <!-- Give review button (hidden initially) -->
-              <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review <i class="fas fa-arrow-right"></i></button>
+              <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review</a> <i class="fas fa-arrow-right"></i></button>
             </div>
           </div>
         </div>
@@ -401,7 +401,7 @@
               </div>
     
               <!-- Give review button (hidden initially) -->
-              <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review <i class="fas fa-arrow-right"></i></button>
+              <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review</a><i class="fas fa-arrow-right"></i></button>
             </div>
           </div>
         </div>
@@ -432,7 +432,8 @@
               </div>
     
               <!-- Give review button (hidden initially) -->
-              <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review<i class="fas fa-arrow-right"></i></button>
+              <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review</a><i class="fas fa-arrow-right"></i></button>
+              
             </div>
           </div>
         </div>
@@ -512,10 +513,23 @@
         container.innerHTML = cardHTML; // Insert the fetched movie card
     }
 
+    
+</script>
+<script>
+    // Toggle the visibility of additional reviews and show the 'Give Review' button
     function toggleReviews(button) {
-        const additionalReviews = button.parentElement.nextElementSibling;
-        additionalReviews.style.display = additionalReviews.style.display === 'none' ? 'block' : 'none';
-        button.textContent = additionalReviews.style.display === 'none' ? 'read more' : 'read less';
+        const reviewsDiv = button.parentElement.nextElementSibling;
+        const giveReviewBtn = reviewsDiv.nextElementSibling;
+
+        if (reviewsDiv.style.display === "none" || reviewsDiv.style.display === "") {
+            reviewsDiv.style.display = "block";
+            button.innerText = "show less";
+            giveReviewBtn.style.display = "block";
+        } else {
+            reviewsDiv.style.display = "none";
+            button.innerText = "read more";
+            giveReviewBtn.style.display = "none";
+        }
     }
 </script>
 
