@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -201,7 +202,7 @@
                     </div>
           
                     <!-- Give review button (hidden initially) -->
-                    <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review<i class="fas fa-arrow-right"></i></button>
+                    <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review</a><i class="fas fa-arrow-right"></i></button>
                   </div>
                 </div>
               </div>
@@ -226,7 +227,7 @@
                     <p class="card-text"><strong>Review 2:</strong>With breathtaking action and a chilling villain, The Dark Knight redefines the superhero genre.</p>
                     <p class="card-text"><strong>Review 3:</strong>Dark, gripping, and emotionally charged; one of the finest films of its time.</p>
                   </div>
-                  <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review <i class="fas fa-arrow-right"></i></button>
+                  <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review</a> <i class="fas fa-arrow-right"></i></button>
                 </div>
               </div>
             </div>
@@ -250,7 +251,7 @@
                     <p class="card-text"><strong>Review 2:</strong>Nolan’s best film yet; it balances heart and mind in a grand adventure through space.</p>
                     <p class="card-text"><strong>Review 3:</strong>A visually stunning and emotionally powerful space epic.</p>
                   </div>
-                  <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review<i class="fas fa-arrow-right"></i></button>
+                  <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review</a><i class="fas fa-arrow-right"></i></button>
                 </div>
               </div>
             </div>
@@ -274,7 +275,7 @@
                     <p class="card-text"><strong>Review 2:</strong>Nolan’s best film yet; it balances heart and mind in a grand adventure through space.</p>
                     <p class="card-text"><strong>Review 3:</strong>Equal parts funny, disturbing, and tragic; Parasite is a cinematic triumph.</p>
                   </div>
-                  <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review <i class="fas fa-arrow-right"></i></button>
+                  <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review</a><i class="fas fa-arrow-right"></i></button>
                 </div>
               </div>
             </div>
@@ -298,7 +299,7 @@
                     <p class="card-text"><strong>Review 2:</strong>A daring, haunting film that leaves a lasting impression.</p>
                     <p class="card-text"><strong>Review 3:</strong>A raw, visceral exploration of the human condition.</p>
                   </div>
-                  <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review <i class="fas fa-arrow-right"></i></button>
+                  <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review</a> <i class="fas fa-arrow-right"></i></button>
                 </div>
               </div>
             </div>
@@ -322,7 +323,7 @@
                     <p class="card-text"><strong>Review 2:</strong>A thrilling spectacle that perfectly balances action and emotional payoffs for long-time fans.</p>
                     <p class="card-text"><strong>Review 3:</strong>An epic and nostalgic journey that delivers closure while also leaving fans excited for the future of the MCU.</p>
                   </div>
-                  <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review <i class="fas fa-arrow-right"></i></button>
+                  <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review</a> <i class="fas fa-arrow-right"></i></button>
                 </div>
               </div>
             </div>
@@ -401,10 +402,22 @@
         container.innerHTML = cardHTML; // Insert the fetched movie card
     }
 
+</script>
+<script>
+    // Toggle the visibility of additional reviews and show the 'Give Review' button
     function toggleReviews(button) {
-        const additionalReviews = button.parentElement.nextElementSibling;
-        additionalReviews.style.display = additionalReviews.style.display === 'none' ? 'block' : 'none';
-        button.textContent = additionalReviews.style.display === 'none' ? 'read more' : 'read less';
+        const reviewsDiv = button.parentElement.nextElementSibling;
+        const giveReviewBtn = reviewsDiv.nextElementSibling;
+
+        if (reviewsDiv.style.display === "none" || reviewsDiv.style.display === "") {
+            reviewsDiv.style.display = "block";
+            button.innerText = "show less";
+            giveReviewBtn.style.display = "block";
+        } else {
+            reviewsDiv.style.display = "none";
+            button.innerText = "read more";
+            giveReviewBtn.style.display = "none";
+        }
     }
 </script>
 
