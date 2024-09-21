@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Us - Movie and Series Reviews">
+  <title>About Us - MovieReview</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <style>
+    /* Global Styling */
+    body {
+      background: linear-gradient(135deg, #e0eafc, #cfdef3); /* Light gradient background */
+      color: #333; /* Dark text color */
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Hero Section */
+    .hero-section {
+        background-image: url('img3.jpg');
+        background-size: cover; /* Ensures the image covers the section */
+        background-position: center center; /* Centers the image */
+        background-repeat: no-repeat; /* Prevents the image from repeating */
+        color: white;
+        text-align: center;
+        padding: 100px 20px;
+        height: auto;
+   
+       
+      }
+
+    .hero-section h1 {
+      font-size: 3rem;
+    }
+
+    .hero-section p {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+    }
+
+    .hero-section .btn {
+      background-color: #022c4b; /* Bright accent color */
+      border: none;
+      padding: 15px 30px;
+    }
+
+    /* Box-shadow applied to sections */
+    .section {
+      padding: 60px 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow effect */
+      margin: 20px 0;
+      border-radius: 10px; /* Rounded corners */
+      background-color: #ffffff; /* White background for sections */
+      border-left: 5px solid #022c4b;;/* Soft Red */
+    }
+
+    /* Section Styling */
+    .about-us {
+      border-left: 5px solid #022c4b; /* Soft Red */
+    }
+
+    .why-love-us {
+      border-left: 5px solid #022c4b; /* Light Pink */
+    }
+
+    .what-we-do {
+      border-left: 5px solid #022c4b; /* Medium Blue */
+    }
+
+    .why-choose-us {
+      border-left: 5px solid #022c4b;/* Dark Green */
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    /* Card Styling */
+    .card {
+      background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent card background */
+      color: #333;
+      border: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for cards */
+      border-radius: 10px;
+    }
+
+    .card h5 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      font-size: 1rem;
+    }
+
+    /* Footer Styling */
+    footer {
+      background-color: #343a40;
+      color: white;
+      padding: 20px 0;
+    }
+
+    .social-icons a {
+      color: white;
+      font-size: 24px;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #dc3545;
+    }
+
+    /* Media Queries for Responsive Design */
+    @media (max-width: 768px) {
+      .hero-section h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-section p {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <h1>Welcome to ReviewBazzar</h1>
+      <p>Your ultimate destination for the best movie and series reviews!</p>
+      <a href="index.html" class="btn btn-primary btn-lg">Back to Home</a>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <div id="about" class="section about-us">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>Welcome to MovieReview, your ultimate destination for movie and series reviews. Our team of passionate critics and cinema enthusiasts provide in-depth analyses and honest feedback on the latest films and TV series.</p>
+    </div>
+  </div>
+
+  <!-- Example Cards for Features -->
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title">Comprehensive Reviews</h5>
+              <p class="card-text">In-depth analysis of movies and series, from plot breakdowns to character development and cinematography.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title">Curated Recommendations</h5>
+              <p class="card-text">Personalized suggestions based on your viewing habits, ensuring you'll always find something you love.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title">Engaging Discussions</h5>
+              <p class="card-text">Join our community of movie buffs and series lovers in lively discussions about the latest releases and hidden gems.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Why You'll Love Us Section -->
+  <div class="section why-love-us">
+    <div class="container">
+      <h2>Why You'll Love Us</h2>
+      <p>We offer curated recommendations, personalized content, and an engaging community. We make sure you always find something to love, whether you're a casual viewer or a hardcore cinephile.</p>
+    </div>
+  </div>
+
+  <!-- What We Do Section -->
+  <div class="section what-we-do">
+    <div class="container">
+      <h2>What We Do</h2>
+      <p>We break down movies and series with detailed reviews, focusing on plot, cinematography, character development, and much more. Our goal is to guide you through the vast sea of entertainment choices.</p>
+    </div>
+  </div>
+
+  <!-- Why Choose Us Section -->
+  <div class="section why-choose-us">
+    <div class="container">
+      <h2>Why Choose Us</h2>
+      <p>We pride ourselves on being honest, unbiased, and insightful. Our reviews are crafted with care and precision, helping you discover hidden gems and avoid the hype around mediocre releases.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container text-center">
+      <div class="social-icons my-3">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <p>&copy; 2024 MovieReview. All Rights Reserved.</p>
+    </div>
+  </footer>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

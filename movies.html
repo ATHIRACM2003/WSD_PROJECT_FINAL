@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Series Review Site</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <style>
+        body {
+            font-family: Poppins;
+            background-color: #dcebe6;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            filter: brightness(95%);
+        }
+
+        .navbar {
+            font-size: 18px;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            background-color: rgba(0, 0, 0, 0.2);
+            margin-left: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            background-color: rgba(243, 195, 212, 0.8);
+            color: #fff;
+        }
+
+        #seriesDetails {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .search-bar {
+            margin-right: 15px;
+        }
+
+        .search-bar .form-control {
+            border-radius: 20px 0 0 20px;
+            padding: 10px;
+        }
+
+        .search-bar .btn {
+            border-radius: 0 20px 20px 0;
+            background-color: #8dbfde; /* Adjust color for better visibility */
+            color: white;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar .btn i {
+            font-size: 16px;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .card-img-top {
+            border-radius: 10px 10px 0 0;
+            object-fit: cover;
+            height: 200px;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .read-more {
+            color: #1c14b6;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        .additional-reviews {
+            display: none;
+        }
+
+        .give-review-btn {
+            display: none;
+            margin-top: 10px;
+            background-color: #e8e8ed;
+            color: rgb(3, 3, 3);
+            border-radius: 10px;
+            border: solid 1px rgb(27, 3, 49);
+            padding: 10px 20px;
+        }
+        .give-review-btn:hover{
+            background-color: #8f8f9b;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination .page-link {
+            border-radius: 50%;
+            margin: 0 5px;
+            color: #6c63ff;
+        }
+        .btnlink{
+          text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-gradient">
+  <div class="container-fluid">
+    <a class="navbar-brand text-dark" href="#">SeriesReview</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item" >
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="categoryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Category
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+            <li><a class="dropdown-item" href="movies.html">Movies</a></li>
+            <li><a class="dropdown-item" href="series.html">Series</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#"><i class="bi bi-box-arrow-in-right"></i> Login</a></li>
+        <li class="nav-item"> -->
+          <!-- <a class="nav-link" href="#"><i class="bi bi-person-plus"></i> Signup</a></li> -->
+          <form class="d-flex search-bar" onsubmit="searchSeries(event)">
+            <div class="input-group">
+                <input class="form-control" type="search" id="search-input" placeholder="Search series, director, OTT" aria-label="Search">
+                <button class="btn btn-outline-light" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </form>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <!-- movie Cards -->
+<div class="container my-5">
+    <div class="row">
+      <!-- Series card template -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="arm.jpeg" class="card-img-top" alt="Series Image">
+          <div class="card-body">
+            <h5 class="card-title">ARM</h5>
+            <p class="card-text"><strong>Genre: </strong> Drama,Adventure<br>A.R.M (officially titled: Ajayante Randam Moshanam;) is a 2024 Indian Malayalam-language action adventure film.</p>
+            <p class="card-text"><strong>Director: </strong> Jithin Laal</p>
+            <div class="rating">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star-half-alt text-warning"></i>
+            </div>
+            <p class="card-text"><strong>Review 1:</strong>ARM (Ajayante Randam Moshanam )directed by Jithin Lal student of director Basil Joseph who made Minnal murali has crafted a awesome fantasy movie.A visual treat especially when you watch it in 3D... <button class="read-more" onclick="toggleReviews(this)">read more</button></p>
+  
+            <!-- Hidden additional reviews -->
+            <div class="additional-reviews">
+              <p class="card-text"><strong>Review 2:</strong>ARM is a fairytale. It has magic, mystery and magnificent visuals and a very happy ending.The film's engaging narrative, stunning visuals, and exceptional performances make it a must-watch.</p>
+              <p class="card-text"><strong>Review 3:</strong> A visual extravaganza set on the backdrop of a mythological tale.Ajayante Randam Moshanam a noteworthy addition to Malayalam cinema, especially for fans of historical fantasy with a mix of action and drama.</p>
+            </div>
+  
+            <!-- Give review button (hidden initially) -->
+            <button class="give-review-btn">Give Review <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="pathan.jpeg" class="card-img-top" alt="Series Image">
+            <div class="card-body">
+              <h5 class="card-title">Pathaan</h5>
+              <p class="card-text"><strong>Genre: </strong> Thriller<br> Pathaan is a 2023 Indian Hindi-language action thriller film.The film set several box office records for a Hindi film</p>
+              <p class="card-text"><strong>Director: </strong> Siddharth Anand</p>
+              <div class="rating">
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <!-- <i class="fas fa-star-half-alt text-warning"></i> -->
+              </div>
+              <p class="card-text"><strong>Review 1:</strong> 
+                  Stylish, slick and action-packed film; in one work it’s a ‘Blockbuster’. Film has actions, thrills, bit of suspense and gripping storyline. SRK is back with a bang and has made his fans delighted, a long wait proven worthy.  <button class="read-more" onclick="toggleReviews(this)">read more</button></p>
+    
+              <!-- Hidden additional reviews -->
+              <div class="additional-reviews">
+                <p class="card-text"><strong>Review 2:</strong>Pathaan, the prolific musician and DJ, delivers an unforgettable musical experience that transcends genres and borders. In his latest work, he masterfully weaves a diverse tapestry of sounds.</p>
+                <p class="card-text"><strong>Review 3:</strong>
+                  Our beloved 90s hero is still alive and well at the age of 57, and PATHAAN is his devastating comeback that literally ignites fireworks in theatres from the sides of his fans and admirers who have never let him down</p>
+              </div>
+    
+              <!-- Give review button (hidden initially) -->
+              <button class="give-review-btn">Give Review <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="avesham.jpeg" class="card-img-top" alt="Series Image">
+            <div class="card-body">
+              <h5 class="card-title">Aavesham</h5>
+              <p class="card-text"><strong>Genre: </strong> Comedy, Drama<br>Three teens come to Bangalore for their engineering education and get involved in a fight. They find a local gangster to help them.</p>
+              <p class="card-text"><strong>Director: </strong> Jithu Madhavan</p>
+              <div class="rating">
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <!-- <i class="fas fa-star text-warning"></i> -->
+                <!-- <i class="fas fa-star text-warning"></i> -->
+                <i class="fas fa-star-half-alt text-warning"></i>
+              </div>
+              <p class="card-text"><strong>Review 1:</strong>"Laugh Riot" is an uproarious comedy that will leave you in stitches from start to finish. Directed with impeccable comedic timing, offering a perfect escape from the mundane with its delightful mix of humor and heart. <button class="read-more" onclick="toggleReviews(this)">read more</button></p>
+    
+              <!-- Hidden additional reviews -->
+              <div class="additional-reviews">
+                <p class="card-text"><strong>Review 2:</strong> "Aavesham" storms onto the screen as a high-voltage cocktail of comedy, action, and sheer entertainment, firmly establishing itself as a must-watch in the Malayalam cinema landscape. </p>
+                <p class="card-text"><strong>Review 3:</strong>
+                  “Aavesham”
+                  
+                  Won't say a high-fi oscar worthy performance blah blah blah....but it's much like something I needed to watch....so do you. A proper comedy with a bit classic Indian drama to it. And mark my words the music album is 🔥 literally 🔥</p>
+              </div>
+    
+              <!-- Give review button (hidden initially) -->
+              <button class="give-review-btn">Give Review <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="goat.jpeg" class="card-img-top" alt="Series Image">
+            <div class="card-body">
+              <h5 class="card-title">GOAT</h5>
+              <p class="card-text"><strong>Genre: </strong> Action/Sci-fi <br> After years of successful operations, an elite agent suddenly retires, choosing a quiet, ordinary life. However, when a past mission comes back to haunt him, he reunites with his team to prevent a catastrophic disaster.</p>
+              <p class="card-text"><strong>Director: </strong>  Venkat Prabhu </p>
+              <div class="rating">
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star-half-alt text-warning"></i>
+              </div>
+              <p class="card-text"><strong>Review 1:</strong> Watched "GOAT" , and what an experience it was!.<button class="read-more" onclick="toggleReviews(this)">read more</button></p>
+    
+              <!-- Hidden additional reviews -->
+              <div class="additional-reviews">
+                <p class="card-text"><strong>Review 2:</strong> 1st half in some areas it felt a little lag but while ending first half it was awesome ..first half needed some corrections..especially in de aging.needed more corrections...</p>
+                <p class="card-text"><strong>Review 3:</strong>The climax was a bit too draggy, the VFX in certain scenes was not very appealing.</p>
+              </div>
+    
+              <!-- Give review button (hidden initially) -->
+              <button class="give-review-btn">Give Review <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="spiderman3.jpeg" class="card-img-top" alt="Series Image">
+            <div class="card-body">
+              <h5 class="card-title">Spiderman3-No Way Home</h5>
+              <p class="card-text"><strong>Genre: </strong> Comedy, Fantasy<br>Spider-Man seeks the help of Doctor Strange to forget his exposed secret identity as Peter Parker. However, Strange's spell goes horribly wrong, leading to unwanted guests entering their universe.</p>
+              <p class="card-text"><strong>Director: </strong> Jon Watts</p>
+              <div class="rating">
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <!-- <i class="fas fa-star text-warning"></i> -->
+                <i class="fas fa-star-half-alt text-warning"></i>
+              </div>
+              <p class="card-text"><strong>Review 1:</strong> In a word, amazing.
+                  In other words, it’s the kind of experience that you have to see to believe!!!!
+                  
+                  <button class="read-more" onclick="toggleReviews(this)">read more</button></p>
+    
+              <!-- Hidden additional reviews -->
+              <div class="additional-reviews">
+                <p class="card-text"><strong>Review 2:</strong>super movie 5/5 no wards 👌Convoluted as the Marvel Cinematic Universe has gotten, Holland's latest opus spins two decades and three iterations of the Spidey brand into a satisfying meta-adventure</p>
+                <p class="card-text"><strong>Review 3:</strong>This film is amazing! The best Spider-Man film yet.</p>
+              </div>
+    
+              <!-- Give review button (hidden initially) -->
+              <button class="give-review-btn">Give Review <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="drishyam_1.jpeg" class="card-img-top" alt="Series Image">
+            <div class="card-body">
+              <h5 class="card-title">Drishyam</h5>
+              <p class="card-text"><strong>Genre: </strong> Thriller<br>Georgekutty lives a happy life with his wife and daughters. However, things take a turn for the worse when his family commits an accidental crime, leaving him to protect them and their secret.</p>
+              <p class="card-text"><strong>Director: </strong> Jithu Joseph</p>
+              <div class="rating">
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <!-- <i class="fas fa-star text-warning"></i> -->
+                <i class="fas fa-star-half-alt text-warning"></i>
+              </div>
+              <p class="card-text"><strong>Review 1:</strong>One word to describe this movie is WOW. Most probably the best suspense thriller ever.<button class="read-more" onclick="toggleReviews(this)">read more</button></p>
+    
+              <!-- Hidden additional reviews -->
+              <div class="additional-reviews">
+                <p class="card-text"><strong>Review 2:</strong>One of the astounding Malayalam film.This  a must watch movie what ever the language it doesn't matter</p>
+                <p class="card-text"><strong>Review 3:</strong>A must watch thriller movie.. Another masterpiece from the Legend actor Mohanlal. Undoubtedly, he's a world class actor. </p>
+              </div>
+    
+              <!-- Give review button (hidden initially) -->
+              <button class="give-review-btn">Give Review <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="kaathal.jpeg" class="card-img-top" alt="Series Image">
+            <div class="card-body">
+              <h5 class="card-title">Kaathal</h5>
+              <p class="card-text"><strong>Genre: </strong> Drama<br>A mockumentary-style sitcom that takes a comedic look at the everyday lives of office employees working at Dunder Mifflin. With quirky characters and awkward situations, it humorously captures the dynamics of office culture.</p>
+              <p class="card-text"><strong>Director: </strong> Jeo Baby</p>
+              <div class="rating">
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <!-- <i class="fas fa-star text-warning"></i> -->
+                <i class="fas fa-star-half-alt text-warning"></i>
+              </div>
+              <p class="card-text"><strong>Review 1:</strong> Kaathal The Core (2023/ Malayalam/ Prime): I strongly Recommend this film, which made me say "I Miss this Malayalam Cinema, which takes its time to bring its gems and when it comes, it strikes"<button class="read-more" onclick="toggleReviews(this)">read more</button></p>
+    
+              <!-- Hidden additional reviews -->
+              <div class="additional-reviews">
+                <p class="card-text"><strong>Review 2:</strong >The movie starts slow and you need to cross the first 30-40 mins to understand the core issue. </p>
+                <p class="card-text"><strong>Review 3:</strong>"kaathal the core" is a depiction of  the emotional battle of those impacted in an unorthodox romantic attraction. </p>
+              </div>
+    
+              <!-- Give review button (hidden initially) -->
+              <button class="give-review-btn">Give Review <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="jaibhim.jpeg" class="card-img-top" alt="Series Image">
+            <div class="card-body">
+              <h5 class="card-title">Jai Bhim</h5>
+              <p class="card-text"><strong>Genre: </strong> Crime<br>A brave activist-lawyer fights for justice when a poor tribal man, who gets falsely accused of robbery, goes missing from the police custody.Tribal life and their rights are cleverly delivered.</p>
+              <p class="card-text"><strong>Director: </strong> T.J.Gnanavel</p>
+              <div class="rating">
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <!-- <i class="fas fa-star text-warning"></i> -->
+                <i class="fas fa-star-half-alt text-warning"></i>
+              </div>
+              <p class="card-text"><strong>Review 1:</strong> One of the exceptional, outstanding movies . Court drama that is so thoroughly astonishing & engaging right from the start of the movie.The cast and locations are so real. Its must watch .Very excellent  <button class="read-more" onclick="toggleReviews(this)">read more</button></p>
+    
+              <!-- Hidden additional reviews -->
+              <div class="additional-reviews">
+                <p class="card-text"><strong>Review 2:</strong>Jai Bhim....Heart wrenching....raw...real......After ages saw an epic movie which refuses to leave my soul even after 24 hours
+                  Normally language barriers dont let us venture into art beyond our comfort...</p>
+                <p class="card-text"><strong>Review 3:</strong>Had a feeling of watched a quality movie after some time in this covid Pandemic. </p>
+              </div>
+    
+              <!-- Give review button (hidden initially) -->
+              <button class="give-review-btn">Give Review <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="inception.jpeg" class="card-img-top" alt="Series Image">
+            <div class="card-body">
+              <h5 class="card-title">Inception</h5>
+              <p class="card-text"><strong>Genre: </strong> Sci-fi/Action<br>Cobb steals information from his targets by entering their dreams. He is wanted for his alleged role in his wife's murder and his only chance at redemption is to perform a nearly impossible task.</p>
+              <p class="card-text"><strong>Director: </strong> Christopher Nolan</p>
+              <div class="rating">
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <!-- <i class="fas fa-star text-warning"></i> -->
+                <i class="fas fa-star-half-alt text-warning"></i>
+              </div>
+              <p class="card-text"><strong>Review 1:</strong>Inception is, without a doubt, one of my favourite movies of all time. Directed by Christopher Nolan, this film delivers a unique blend of mind-bending storytelling, impeccable performances, and stunning visuals that have left a lasting impression on me. <button class="read-more" onclick="toggleReviews(this)">read more</button></p>
+    
+              <!-- Hidden additional reviews -->
+              <div class="additional-reviews">
+                <p class="card-text"><strong>Review 2:</strong>Film starts with an idea initially
+                  The starting is so good & how it plays with your mind
+                  How they talk about an idea to saito & how he checks if it's real or not !!</p>
+                <p class="card-text"><strong>Review 3:</strong>
+                  Watching this movie was like going on a mind-blowing mind bender, right from the start. I love the opening scene and how it kind of starts off like real dreams do, in that you just find yourself in a dream  </p>
+              </div>
+    
+              <!-- Give review button (hidden initially) -->
+              <button class="give-review-btn">Give Review <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+        
+  
+  
+        
+        </div>
+
+  <nav aria-label="Page navigation example"></nav>
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="movies.html">1</a></li>
+      <li class="page-item"><a class="page-link" href="movies2.html">2</a></li>
+    </ul>
+  </nav>
+</div>
+  
+  <div id="seriesDetails"></div>
+  
+<script>
+    async function searchSeries(event) {
+        event.preventDefault(); // Prevent form submission
+        const query = document.getElementById('search-input').value.toLowerCase();
+
+        try {
+            const response = await fetch('https://aninaabraham.github.io/web_project/movies.json');
+            const moviesList = await response.json();
+
+            const foundMovie = moviesList.find(movie => movie.name.toLowerCase() === query);
+
+            if (foundMovie) {
+                displayMovie(foundMovie);
+            } else {
+                alert("Movie not found!");
+            }
+        } catch (error) {
+            console.error('Error fetching movies:', error);
+        }
+    }
+
+    function displayMovie(movie) {
+        const container = document.querySelector('.container .row');
+        container.innerHTML = ''; // Clear previous results
+
+        const cardHTML = `
+            <div class="col-md-12">
+                <div class="card">
+                    <img src="${movie.image}" class="card-img-top" alt="${movie.name}">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">${movie.name}</h5>
+                        <p class="card-text text-center"><strong>Genre:</strong> ${movie.genre}</p>
+                        <p class="card-text">${movie.description}</p>
+                        <p class="card-text"><strong>Director:</strong> ${movie.director}</p>
+
+                        <div class="rating mb-3 text-center">
+                            ${Array(5).fill().map((_, index) => 
+                                index < Math.floor(Math.random() * 5) ? '<i class="fas fa-star"></i>' : 
+                                '<i class="fas fa-star-half-alt"></i>'
+                            ).join('')}
+                        </div>
+
+                        <p class="card-text"><strong>Review 1:</strong> ${movie.reviews[0]} 
+                            <button class="read-more" onclick="toggleReviews(this)">read more</button>
+                        </p>
+                        
+                        <div class="additional-reviews">
+                            ${movie.reviews.slice(1).map((review, index) => `
+                                <p class="card-text"><strong>Review ${index + 2}:</strong> ${review}</p>
+                            `).join('')}
+                        </div>
+
+                        <button class="give-review-btn mt-3">Give Review <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        `;
+        container.innerHTML = cardHTML; // Insert the fetched movie card
+    }
+
+    function toggleReviews(button) {
+        const additionalReviews = button.parentElement.nextElementSibling;
+        additionalReviews.style.display = additionalReviews.style.display === 'none' ? 'block' : 'none';
+        button.textContent = additionalReviews.style.display === 'none' ? 'read more' : 'read less';
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
