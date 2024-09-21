@@ -1,0 +1,200 @@
+[
+    {
+        "name": "The Haunting of Hill House",
+        "image": "haunttt.jpeg",
+        "genre": "Horror, Drama",
+        "description": "A modern reimagining of Shirley Jackson's classic novel, this series follows a family confronting haunting memories of their old home and the terrifying events that drove them from it.",
+        "reviews": [
+            "A terrifyingly beautiful story that stays with you long after watching. The character arcs are incredible.",
+            "Well-paced and genuinely frightening! A must-watch for horror fans.",
+            "Some parts felt drawn out, but the atmosphere is hauntingly effective."
+        ]
+    },
+    {
+        "name": "Ozark",
+        "image": "ozarrk.jpeg",
+        "genre": "Crime, Drama",
+        "description": "A financial planner relocates his family to the Ozarks after a money-laundering scheme goes wrong, only to find himself entangled in the dark world of local criminals.",
+        "reviews": [
+            "Intense and gripping from start to finish! The acting is top-notch.",
+            "The plot twists keep you guessing! A thrilling ride.",
+            "Can be a bit slow at times, but overall an excellent series."
+        ]
+    },
+    {
+        "name": "Breaking Bad",
+        "image": "bre.jpeg",
+        "genre": "Crime, Thriller",
+        "description": "A high school chemistry teacher turned methamphetamine manufacturer partners with a former student, navigating the complexities of morality, family, and crime.",
+        "reviews": [
+            "A masterpiece of storytelling! The character development is phenomenal.",
+            "Brilliant writing, but some scenes felt overly drawn out.",
+            "An emotional rollercoaster that is hard to forget."
+        ]
+    },
+    {
+        "name": "Fargo",
+        "image": "fargo.jpeg",
+        "genre": "Crime, Drama",
+        "description": "This anthology series features a new cast and story each season, inspired by the Coen brothers' film. Each story involves crime, morality, and the complexities of human nature.",
+        "reviews": [
+            "Darkly humorous and brilliantly written! A unique take on crime stories.",
+            "Some seasons are stronger than others, but the writing is consistently sharp.",
+            "A bit slow at times, but the characters are worth it."
+        ]
+    },
+    {
+        "name": "Brooklyn Nine-Nine",
+        "image": "brookyl.jpeg",
+        "genre": "Comedy, Crime",
+        "description": "A hilarious sitcom following the detectives of Brooklyn's 99th precinct as they solve crimes while navigating their own personal lives.",
+        "reviews": [
+            "A perfect blend of humor and heart! The characters are lovable.",
+            "Consistently funny with great character development.",
+            "Some jokes can feel repetitive, but the charm makes up for it."
+        ]
+    },
+    {
+        "name": "The Good Place",
+        "image": "good.jpeg",
+        "genre": "Comedy, Fantasy",
+        "description": "A unique series that follows Eleanor Shellstrop as she navigates the afterlife, discovering what it means to be a good person along the way.",
+        "reviews": [
+            "Clever writing and a fresh take on the afterlife! A delightful watch.",
+            "The plot twists are unexpected and add depth to the characters.",
+            "A few episodes felt slow, but overall a unique comedy."
+        ]
+    },
+    {
+        "name": "Better Call Saul",
+        "image": "btr.jpeg",
+        "genre": "Crime, Drama",
+        "description": "A prequel to Breaking Bad, this series follows Jimmy McGill, a small-time lawyer hustling to make a name for himself, navigating his moral dilemmas along the way.",
+        "reviews": [
+            "Exceptional character development and storytelling. A must-see!",
+            "Slow-paced but worth every minute! A brilliant narrative.",
+            "Incredible acting and writing. One of the best series of all time."
+        ]
+    },
+    {
+        "name": "The Witcher",
+        "image": "witch.webp",
+        "genre": "Fantasy, Adventure",
+        "description": "Based on the popular book series, this fantasy drama follows Geralt of Rivia, a monster hunter navigating a world of magic and intrigue. The series blends action, mythology, and moral dilemmas.",
+        "reviews": [
+            " A captivating world with fantastic performances! Henry Cavill is perfect as Geralt.",
+            "Great visuals but the plot felt disjointed at times",
+            "Couldn’t connect with the characters; found it dull."
+        ]
+    },
+    {
+        "name": "Panchayat",
+        "image": "panchayat.jpg",
+        "genre": "Comedy, Drama",
+        "description": "This comedy-drama follows an engineering graduate who becomes a Panchayat secretary in a remote village. The series humorously explores his struggles to adapt to village life while dealing with quirky villagers.",
+        "reviews": [
+            " Charming but occasionally repetitive in humor.",
+            "I expected more plot development; it felt too laid-back.",
+            "Hilarious and heartwarming! The cast has great chemistry."
+        ]
+    },
+     {
+        "name": "Stranger things",
+        "image": "stranger.jpg",
+        "genre": "Fantasy",
+        "description": "Stranger Things is an American television series created by the Duffer Brothers for Netflix.",
+        "reviews": [
+            " Stranger Things is a nostalgic ride that perfectly captures the essence of the '80s. The characters are well-developed and relatable. The mix of horror, adventure, and friendship keeps you on the edge of your seat.Definitely a must-watch..",
+            "As a fan of supernatural thrillers, I found Stranger Things to be a captivating series. The suspense builds beautifully throughout the seasons, and the plot twists never cease to surprise me. The chemistry among the young cast is incredible, making their friendship feel genuine and heartwarming.",
+            "I started watching Stranger Things on a whim, and now I’m hooked! The blend of adventure, horror, and a touch of humor is spot on."
+        ]
+    },
+     {
+        "name": "Sacred Games",
+        "image": "sacred.jpeg",
+        "genre": "Thriller, Crime",
+        "description": " A gripping crime thriller that intertwines the lives of a Mumbai police officer and a notorious gangster. As they navigate a web of crime, corruption, and spirituality, the series delves into dark conspiracies that threaten the city.",
+        "reviews": [
+            "A masterclass in storytelling! The writing, direction, and performances are top-notch. The action thriller is nice to watch.",
+            "While the first season was gripping, the second felt a bit rushed and lost the plot.",
+            "Overhyped! It started strong but ended up being convoluted."
+        ]
+    },
+      {
+        "name": "Paatal Lok",
+        "image": "pataaaaal.jpeg",
+        "genre": "Crime, Drama",
+        "description": " A gritty crime drama that follows a disillusioned police officer as he investigates a high-profile case involving a failed assassination attempt. The series explores India's socio-political issues and the darker aspects of human nature.",
+        "reviews": [
+            "Raw and realistic! The performances are stunning, and the narrative is gripping .",
+            " It had a powerful message but dragged in parts, making it a bit tedious.",
+            "Couldn’t finish it; the pacing was painfully slow."
+        ]
+    },
+      {
+        "name": "Family Man",
+        "image": "family.jpeg",
+        "genre": "Action, Drama",
+        "description": "This action-packed series follows Srikant Tiwari, a middle-class man who secretly works as an intelligence officer. Juggling his demanding job and family life, he must navigate threats to national security while maintaining his home life.",
+        "reviews": [
+            "Good concept, but some episodes felt dragged and repetitive.",
+            " A perfect blend of humor and action! Loved the character depth and storyline.",
+            "Couldn’t finish it; the pacing was painfully slow."
+        ]
+    },
+         {
+        "name": "Bharaatein",
+        "image": "family.jpeg",
+        "genre": "Comedy, Drama",
+        "description": "A lighthearted drama that focuses on a group of friends living in Kerala, exploring their lives, aspirations, and relationships. The series beautifully blends humor and heartfelt moments, capturing the essence of friendship.",
+        "reviews": [
+            "Relatable and funny! Captured the essence of friendship perfectly.",
+            " Good moments, but the plot seemed stretched at times",
+            "It tried too hard to be funny, falling flat in many scenes.."
+        ]
+    },
+     {
+        "name": "The Office",
+        "image": "off.jpeg",
+        "genre": "Comedy, Drama",
+        "description": "A mockumentary-style sitcom that takes a comedic look at the everyday lives of office employees working at Dunder Mifflin. With quirky characters and awkward situations, it humorously captures the dynamics of office culture.",
+        "reviews": [
+            "Hilarious and relatable! The characters are unforgettable.",
+            " Not my cup of tea; found it repetitive and dull.",
+            "Started strong but dragged towards the end."
+        ]
+    },
+       {
+        "name": "The Mandalorian",
+        "image": "mando.jpeg",
+        "genre": "Sci-Fi, Adventure",
+        "description": "Set in the Star Wars universe, this series follows a lone bounty hunter as he navigates the outer reaches of the galaxy. It combines action, adventure, and a touch of heart, especially with the beloved character.",
+        "reviews": [
+            "A fresh take on Star Wars! The storytelling and visuals are fantastic.",
+            "I didn’t connect with the story; felt too slow at times.",
+            "Great start, but some episodes felt like filler."
+        ]
+    },
+      {
+        "name": "Money heist",
+        "image": "moneyy.jpeg",
+        "genre": "Heist, Thriller",
+        "description": "A criminal mastermind known as The Professor plans the biggest heist in history, targeting the Royal Mint of Spain. The series follows the intricacies of the heist, the dynamics among the robbers, and the tension with the police.",
+        "reviews": [
+            "Exciting but dragged in the middle; felt repetitive.",
+            "Intense and gripping! Each character has depth, making it a thrilling watch.",
+            "Too much drama and not enough action; disappointing."
+        ]
+    },
+       {
+        "name": "Dark",
+        "image": "darkk.jpeg",
+        "genre": "Sci-Fi, Thriller",
+        "description": "This mind-bending series explores time travel, familial connections, and the impact of secrets on multiple generations. Set in a small town, it weaves together complex narratives that span different timelines.",
+        "reviews": [
+            " A brilliantly crafted series! Intriguing and thought-provoking.",
+            "Very complicated; I had to rewatch some episodes to understand.",
+            "Confusing and slow; lost interest halfway through."
+        ]
+    }
+]

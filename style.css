@@ -1,0 +1,77 @@
+/* Navbar custom styling */
+.navbar {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    background: linear-gradient(45deg, rgba(255, 107, 107, 0.8), rgba(240, 101, 149, 0.8), rgba(132, 94, 247, 0.8));
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 24px;
+    color: #fff;
+}
+
+/* Rounded box for nav items */
+.navbar-nav .nav-link {
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: rgba(243, 195, 212, 0.8);
+    color: #fff;
+}
+
+/* Carousel custom styling */
+.carousel-caption h5 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.carousel-caption p {
+    font-size: 18px;
+}
+
+/* Ensure that the carousel goes behind the navbar */
+.carousel-item img {
+    width: 100%;
+    height: 670px; /* Set a consistent height for the carousel */
+    object-fit: cover; /* Ensures the image covers the entire container while maintaining its aspect ratio */
+    object-position: center; /* Center the image within the container */
+}
+
+/* Custom styling for the cards */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    object-fit: cover;
+    height: 260px;
+}
+
+.card-title {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.card-text {
+    font-size: 16px;
+}
+
+/* Add a subtle hover effect to the cards */
+.card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}

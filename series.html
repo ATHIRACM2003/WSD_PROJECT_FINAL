@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Series Review Site</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <style>
+        body {
+            font-family: Poppins;
+            background-color: #dcebe6;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            filter: brightness(95%);
+        }
+
+        .navbar {
+            font-size: 18px;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            background-color: rgba(0, 0, 0, 0.2);
+            margin-left: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            background-color: rgba(243, 195, 212, 0.8);
+            color: #fff;
+        }
+
+        .search-bar {
+            margin-right: 15px;
+        }
+
+        .search-bar .form-control {
+            border-radius: 20px 0 0 20px;
+            padding: 10px;
+        }
+
+        .search-bar .btn {
+            border-radius: 0 20px 20px 0;
+            background-color: #8dbfde; /* Adjust color for better visibility */
+            color: white;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+        }
+        .btnlink{
+          text-decoration: none;
+        }
+        .search-bar .btn i {
+            font-size: 16px;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .card-img-top {
+            border-radius: 10px 10px 0 0;
+            object-fit: cover;
+            height: 200px;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .read-more {
+            color: #1c14b6;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        .additional-reviews {
+            display: none;
+        }
+
+        .give-review-btn {
+            display: none;
+            margin-top: 10px;
+            background-color: #e8e8ed;
+            color: rgb(3, 3, 3);
+            border-radius: 10px;
+            border: solid 1px rgb(27, 3, 49);
+            padding: 10px 20px;
+        }
+        .give-review-btn:hover{
+            background-color: #8f8f9b;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination .page-link {
+            border-radius: 50%;
+            margin: 0 5px;
+            color: #6c63ff;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-gradient">
+  <div class="container-fluid">
+    <a class="navbar-brand text-dark" href="#">ReviewBazzar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item" >
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="categoryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Category
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+            <li><a class="dropdown-item" href="#">Movies</a></li>
+            <li><a class="dropdown-item" href="series.html">Series</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#"><i class="bi bi-box-arrow-in-right"></i> Login</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="bi bi-person-plus"></i> Signup</a></li> -->
+          <form class="d-flex search-bar" onsubmit="searchSeries(event)">
+            <div class="input-group">
+                <input class="form-control" type="search" id="search-input" placeholder="Search series, director, OTT" aria-label="Search">
+                <button class="btn btn-outline-light" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </form>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Series Cards -->
+<div class="container my-5">
+  <div class="row">
+    <!-- Series card template -->
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <img src="stranger.jpg" class="card-img-top" alt="Series Image">
+        <div class="card-body">
+          <h5 class="card-title">Stranger things</h5>
+          <p class="card-text"><strong>Genre: </strong> Fantasy<br>Stranger Things is an American television series created by the Duffer Brothers for Netflix.<br><strong>Seasons:</strong> 4<br> The fifth season is expected to be released in 2025.</p>
+          <div class="rating">
+            <i class="fas fa-star text-warning"></i>
+            <i class="fas fa-star text-warning"></i>
+            <i class="fas fa-star text-warning"></i>
+            <i class="fas fa-star text-warning"></i>
+            <i class="fas fa-star-half-alt text-warning"></i>
+          </div>
+          <p class="card-text"><strong>Review 1:</strong> Stranger Things is a nostalgic ride that perfectly captures the essence of the '80s. The characters are well-developed and relatable. The mix of horror, adventure, and friendship keeps you on the edge of your seat.Definitely a must-watch.. <button class="read-more" onclick="toggleReviews(this)">read more</button></p>
+
+          <!-- Hidden additional reviews -->
+          <div class="additional-reviews">
+            <p class="card-text"><strong>Review 2:</strong> As a fan of supernatural thrillers, I found Stranger Things to be a captivating series. The suspense builds beautifully throughout the seasons, and the plot twists never cease to surprise me. The chemistry among the young cast is incredible, making their friendship feel genuine and heartwarming.</p>
+            <p class="card-text"><strong>Review 3:</strong> I started watching Stranger Things on a whim, and now I’m hooked! The blend of adventure, horror, and a touch of humor is spot on. </p>
+          </div>
+
+          <!-- Give review button (hidden initially) -->
+          <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review</a> <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="sacred.jpeg" class="card-img-top" alt="Series Image">
+          <div class="card-body">
+            <h5 class="card-title">Sacred Games</h5>
+            <p class="card-text"><strong>Genre: </strong> Thriller, Crime<br> A gripping crime thriller that intertwines the lives of a Mumbai police officer and a notorious gangster. As they navigate a web of crime, corruption, and spirituality, the series delves into dark conspiracies that threaten the city.</p>
+            <div class="rating">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <!-- <i class="fas fa-star-half-alt text-warning"></i> -->
+            </div>
+            <p class="card-text"><strong>Review 1:</strong> A masterclass in storytelling! The writing, direction, and performances are top-notch. The action thriller is nice to watch. <button class="read-more" onclick="toggleReviews(this)">read more</button></p>
+  
+            <!-- Hidden additional reviews -->
+            <div class="additional-reviews">
+              <p class="card-text"><strong>Review 2:</strong> While the first season was gripping, the second felt a bit rushed and lost the plot.</p>
+              <p class="card-text"><strong>Review 3:</strong> Overhyped! It started strong but ended up being convoluted.</p>
+            </div>
+  
+            <!-- Give review button (hidden initially) -->
+            <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review</a> <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="pataaaaal.jpeg" class="card-img-top" alt="Series Image">
+          <div class="card-body">
+            <h5 class="card-title">Paatal Lok</h5>
+            <p class="card-text"><strong>Genre: </strong> Crime, Drama<br>A gritty crime drama that follows a disillusioned police officer as he investigates a high-profile case involving a failed assassination attempt. The series explores India's socio-political issues and the darker aspects of human nature.</p>
+            <div class="rating">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <!-- <i class="fas fa-star text-warning"></i> -->
+              <!-- <i class="fas fa-star text-warning"></i> -->
+              <i class="fas fa-star-half-alt text-warning"></i>
+            </div>
+            <p class="card-text"><strong>Review 1:</strong> Raw and realistic! The performances are stunning, and the narrative is gripping <button class="read-more" onclick="toggleReviews(this)">read more</button></p>
+  
+            <!-- Hidden additional reviews -->
+            <div class="additional-reviews">
+              <p class="card-text"><strong>Review 2:</strong> It had a powerful message but dragged in parts, making it a bit tedious.</p>
+              <p class="card-text"><strong>Review 3:</strong>Couldn’t finish it; the pacing was painfully slow.</p>
+            </div>
+  
+            <!-- Give review button (hidden initially) -->
+            <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review</a> <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="family.jpeg" class="card-img-top" alt="Series Image">
+          <div class="card-body">
+            <h5 class="card-title">Family Man</h5>
+            <p class="card-text"><strong>Genre: </strong> Action, Drama<br>This action-packed series follows Srikant Tiwari, a middle-class man who secretly works as an intelligence officer. Juggling his demanding job and family life, he must navigate threats to national security while maintaining his home life.</p>
+            <div class="rating">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <!-- <i class="fas fa-star text-warning"></i> -->
+              <!-- <i class="fas fa-star-half-alt text-warning"></i> -->
+            </div>
+            <p class="card-text"><strong>Review 1:</strong> Good concept, but some episodes felt dragged and repetitive.<button class="read-more" onclick="toggleReviews(this)">read more</button></p>
+  
+            <!-- Hidden additional reviews -->
+            <div class="additional-reviews">
+              <p class="card-text"><strong>Review 2:</strong> A perfect blend of humor and action! Loved the character depth and storyline.</p>
+              <p class="card-text"><strong>Review 3:</strong>It tries too hard to be funny; the humor doesn’t always land.</p>
+            </div>
+  
+            <!-- Give review button (hidden initially) -->
+            <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review</a><i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="bha.jpeg" class="card-img-top" alt="Series Image">
+          <div class="card-body">
+            <h5 class="card-title">Bharaatein</h5>
+            <p class="card-text"><strong>Genre: </strong> Comedy, Drama<br>A lighthearted drama that focuses on a group of friends living in Kerala, exploring their lives, aspirations, and relationships. The series beautifully blends humor and heartfelt moments, capturing the essence of friendship.</p>
+            <div class="rating">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <!-- <i class="fas fa-star-half-alt text-warning"></i> -->
+            </div>
+            <p class="card-text"><strong>Review 1:</strong> Relatable and funny! Captured the essence of friendship perfectly.<button class="read-more" onclick="toggleReviews(this)">read more</button></p>
+  
+            <!-- Hidden additional reviews -->
+            <div class="additional-reviews">
+              <p class="card-text"><strong>Review 2:</strong> Good moments, but the plot seemed stretched at times</p>
+              <p class="card-text"><strong>Review 3:</strong>It tried too hard to be funny, falling flat in many scenes.</p>
+            </div>
+  
+            <!-- Give review button (hidden initially) -->
+            <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review</a> <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="off.jpeg" class="card-img-top" alt="Series Image">
+          <div class="card-body">
+            <h5 class="card-title">The Office</h5>
+            <p class="card-text"><strong>Genre: </strong> Comedy<br>A mockumentary-style sitcom that takes a comedic look at the everyday lives of office employees working at Dunder Mifflin. With quirky characters and awkward situations, it humorously captures the dynamics of office culture.</p>
+            <div class="rating">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star-half-alt text-warning"></i>
+            </div>
+            <p class="card-text"><strong>Review 1:</strong> Hilarious and relatable! The characters are unforgettable.<button class="read-more" onclick="toggleReviews(this)">read more</button></p>
+  
+            <!-- Hidden additional reviews -->
+            <div class="additional-reviews">
+              <p class="card-text"><strong>Review 2:</strong>Not my cup of tea; found it repetitive and dull.</p>
+              <p class="card-text"><strong>Review 3:</strong>Started strong but dragged towards the end.</p>
+            </div>
+  
+            <!-- Give review button (hidden initially) -->
+            <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review</a> <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="mando.jpeg" class="card-img-top" alt="Series Image">
+          <div class="card-body">
+            <h5 class="card-title">The Mandalorian</h5>
+            <p class="card-text"><strong>Genre: </strong> Sci-Fi, Adventure<br>Set in the Star Wars universe, this series follows a lone bounty hunter as he navigates the outer reaches of the galaxy. It combines action, adventure, and a touch of heart, especially with the beloved character known as "Baby Yoda".</p>
+            <div class="rating">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <!-- <i class="fas fa-star text-warning"></i> -->
+              <i class="fas fa-star-half-alt text-warning"></i>
+            </div>
+            <p class="card-text"><strong>Review 1:</strong> A fresh take on Star Wars! The storytelling and visuals are fantastic<button class="read-more" onclick="toggleReviews(this)">read more</button></p>
+  
+            <!-- Hidden additional reviews -->
+            <div class="additional-reviews">
+              <p class="card-text"><strong>Review 2:</strong>I didn’t connect with the story; felt too slow at times.</p>
+              <p class="card-text"><strong>Review 3:</strong>Great start, but some episodes felt like filler.</p>
+            </div>
+  
+            <!-- Give review button (hidden initially) -->
+            <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review</a> <i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="moneyy.jpeg" class="card-img-top" alt="Series Image">
+          <div class="card-body">
+            <h5 class="card-title">Money heist</h5>
+            <p class="card-text"><strong>Genre: </strong> Heist, Thriller<br>A criminal mastermind known as "The Professor" plans the biggest heist in history, targeting the Royal Mint of Spain. The series follows the intricacies of the heist, the dynamics among the robbers, and the tension with the police.</p>
+            <div class="rating">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <!-- <i class="fas fa-star text-warning"></i> -->
+              <i class="fas fa-star-half-alt text-warning"></i>
+            </div>
+            <p class="card-text"><strong>Review 1:</strong> Exciting but dragged in the middle; felt repetitive.<button class="read-more" onclick="toggleReviews(this)">read more</button></p>
+  
+            <!-- Hidden additional reviews -->
+            <div class="additional-reviews">
+              <p class="card-text"><strong>Review 2:</strong>Intense and gripping! Each character has depth, making it a thrilling watch.</p>
+              <p class="card-text"><strong>Review 3:</strong>Too much drama and not enough action; disappointing</p>
+            </div>
+  
+            <!-- Give review button (hidden initially) -->
+            <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review</a><i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="darkk.jpeg" class="card-img-top" alt="Series Image">
+          <div class="card-body">
+            <h5 class="card-title">Dark</h5>
+            <p class="card-text"><strong>Genre: </strong> Sci-Fi, Thriller<br>This mind-bending series explores time travel, familial connections, and the impact of secrets on multiple generations. Set in a small town, it weaves together complex narratives that span different timelines.</p>
+            <div class="rating">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <!-- <i class="fas fa-star text-warning"></i> -->
+              <!-- <i class="fas fa-star-half-alt text-warning"></i> -->
+            </div>
+            <p class="card-text"><strong>Review 1:</strong> A brilliantly crafted series! Intriguing and thought-provoking.<button class="read-more" onclick="toggleReviews(this)">read more</button></p>
+  
+            <!-- Hidden additional reviews -->
+            <div class="additional-reviews">
+              <p class="card-text"><strong>Review 2:</strong>Very complicated; I had to rewatch some episodes to understand</p>
+              <p class="card-text"><strong>Review 3:</strong>Confusing and slow; lost interest halfway through.</p>
+            </div>
+  
+            <!-- Give review button (hidden initially) -->
+            <button class="give-review-btn"><a href="login.html" class="btnlink">Give Review</a><i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+      
+      </div>
+
+      
+
+  <!-- Pagination -->
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="series.html">1</a></li>
+      <li class="page-item"><a class="page-link" href="series2.html">2</a></li>
+    </ul>
+  </nav>
+</div>
+<script>
+  async function searchSeries(event) {
+    event.preventDefault(); // Prevent form submission
+    const query = document.getElementById('search-input').value.toLowerCase();
+
+    try {
+        const response = await fetch('https://athiracm2003.github.io/WSD_FINAL_PROJECT/series.json');
+        const seriesList = await response.json();
+
+        const foundSeries = seriesList.find(series => series.name.toLowerCase() === query);
+
+        if (foundSeries) {
+            displaySeries(foundSeries);
+        } else {
+            alert("Series not found!");
+        }
+    } catch (error) {
+        console.error('Error fetching series:', error);
+    }
+}
+
+function displaySeries(series) {
+    const container = document.querySelector('.container .row'); // Adjust the selector based on your layout
+    container.innerHTML = ''; // Clear previous results
+
+    const cardHTML = `
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="${series.image}" class="card-img-top" alt="Series Image">
+                <div class="card-body">
+                    <h5 class="card-title">${series.name}</h5>
+                    <p class="card-text"><strong>Genre: </strong> ${series.genre}<br>${series.description}</p>
+                    <p class="card-text"><strong>Reviews:</strong></p>
+                    ${series.reviews.map(review => `<p>${review}</p>`).join('')}
+                </div>
+            </div>
+        </div>
+    `;
+
+    container.innerHTML = cardHTML; // Add the new series card to the container
+}
+
+  </script>
+
+<script>
+    // Toggle the visibility of additional reviews and show the 'Give Review' button
+    function toggleReviews(button) {
+        const reviewsDiv = button.parentElement.nextElementSibling;
+        const giveReviewBtn = reviewsDiv.nextElementSibling;
+
+        if (reviewsDiv.style.display === "none" || reviewsDiv.style.display === "") {
+            reviewsDiv.style.display = "block";
+            button.innerText = "show less";
+            giveReviewBtn.style.display = "block";
+        } else {
+            reviewsDiv.style.display = "none";
+            button.innerText = "read more";
+            giveReviewBtn.style.display = "none";
+        }
+    }
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const reviews = JSON.parse(localStorage.getItem('reviews')) || {};
+
+      document.querySelectorAll('.card').forEach(function(card) {
+          const seriesTitle = card.querySelector('.card-title').innerText;
+          const reviewContainer = card.querySelector('.additional-reviews');
+
+          if (reviews[seriesTitle]) {
+              reviews[seriesTitle].forEach(function(review) {
+                  const reviewParagraph = document.createElement('p');
+                  reviewParagraph.classList.add('card-text');
+                  reviewParagraph.innerHTML = `<strong>Review:</strong> ${review}`;
+                  reviewContainer.appendChild(reviewParagraph);
+              });
+          }
+      });
+  });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
